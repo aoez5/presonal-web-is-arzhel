@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-zinc-900 text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arzhel's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="font-sans">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-5 bg-zinc-800 shadow-md">
+      <h1 class="text-yellow-400 font-bold text-xl">Arzhel About</h1>
+      <ul class="flex gap-6 text-sm">
+        <li><a href="#home" class="hover:text-yellow-300">Home</a></li>
+        <li><a href="#about" class="hover:text-yellow-300">About</a></li>
+        <li><a href="#portfolio" class="hover:text-yellow-300">Portfolio</a></li>
+        <li><a href="#blog" class="hover:text-yellow-300">Blog</a></li>
+      </ul>
+    </nav>
+
+<!-- Hero Section -->
+<section id="home" class="flex flex-col items-center justify-center h-screen text-center px-4">
+  <img src="arzhel.png" alt="Arzhel's Avatar" class="w-40 h-40 rounded-full mb-4 border-yellow-400 border-4 object-cover shadow-lg" />
+  <h2 class="text-2xl text-gray-300">Hello World, I'm</h2>
+  <h1 class="text-4xl font-bold text-white">Arzhel</h1>
+  <p class="text-lg text-yellow-300 mt-2">Backend-focused Web Developer</p>
+  <p class="text-sm max-w-md mt-4 text-gray-400">
+    I'm 18 and passionate about building powerful, responsive websites with HTML, CSS, and JavaScript.  
+    Every line of code I write brings ideas to life — and I’m just getting started.
+  </p>
+</section>
+<!-- About Section -->
+<section id="about" class="py-16 bg-zinc-900 text-white">
+  <div class="max-w-5xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-yellow-400 mb-4">About Me</h2>
+    <p class="text-gray-400 text-lg mb-8">
+      I'm 18 and passionate about building powerful, responsive websites with HTML, CSS, and JavaScript.
+      Every line of code I write brings ideas to life — and I’m just getting started.
+    </p>
+
+    <!-- Skills Section Start -->
+    <div>
+      <h3 class="text-2xl font-semibold text-white mb-6">Skills</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div class="flex items-center justify-center p-4 border border-zinc-700 rounded-lg hover:bg-zinc-800 transition">
+          <img src="html.png" alt="HTML" class="w-6 h-6 mr-2" />
+          <span>HTML</span>
+        </div>
+        <div class="flex items-center justify-center p-4 border border-zinc-700 rounded-lg hover:bg-zinc-800 transition">
+          <img src="css.png" alt="CSS" class="w-6 h-6 mr-2" />
+          <span>CSS</span>
+        </div>
+        <div class="flex items-center justify-center p-4 border border-zinc-700 rounded-lg hover:bg-zinc-800 transition">
+          <img src="javascript.png" alt="JavaScript" class="w-6 h-6 mr-2" />
+          <span>JavaScript</span>
+        </div>
+        <!-- Add more skills below -->
+      </div>
+    </div>
+    <!-- Skills Section End -->
+  </div>
+</section>
+<section id="portfolio" class="py-20 px-5 bg-[#0d0d0d]">
+  <div class="text-center mb-10">
+    <h2 class="text-3xl font-bold text-white">My Projects</h2>
+    <p class="text-gray-400 mt-3 max-w-xl mx-auto">Some of my best work</p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Project 1 -->
+    <div class="bg-gray-900 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-300">
+      <img src="blue.png" class="rounded-lg mb-3" alt="Landscape Project" />
+      <h3 class="text-white text-xl font-semibold">Landscape Landing Page</h3>
+      <p class="text-gray-400 text-sm mt-1">A clean and scenic website design using HTML, CSS and SVG backgrounds.</p>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="bg-gray-900 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-300">
+      <img src="pruple.png" class="rounded-lg mb-3" alt="Japan Theme" />
+      <h3 class="text-white text-xl font-semibold">Japan Themed Website</h3>
+      <p class="text-gray-400 text-sm mt-1">An aesthetic design inspired by Japanese culture and gradients.</p>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="bg-gray-900 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-300">
+      <img src="red.png" class="rounded-lg mb-3" alt="Registration UI" />
+      <h3 class="text-white text-xl font-semibold">Gradient Registration UI</h3>
+      <p class="text-gray-400 text-sm mt-1">A user-friendly registration form with smooth color transitions.</p>
+    </div>
+  </div>
+</section>
