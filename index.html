@@ -1,131 +1,73 @@
-<!-- index.html (Home Page) --><!DOCTYPE html><html lang="en" class="bg-zinc-900 text-white">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arzhel | Home</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-  </head>
-  <body class="font-sans">
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center p-5 bg-zinc-800 shadow-md">
-      <h1 class="text-yellow-400 font-bold text-xl">Arzhel</h1>
-      <ul class="flex gap-6 text-sm">
-        <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
-        <li><a href="about.html" class="hover:text-yellow-300">About</a></li>
-        <li><a href="portfolio.html" class="hover:text-yellow-300">Portfolio</a></li>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arzhel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+</head><body class="bg-cover bg-center bg-no-repeat min-h-screen text-white" style="background-image: url('bg.jpg');">  <!-- Navbar -->  <header class="bg-gray-900 bg-opacity-80 text-white py-4 px-6 flex justify-between items-center fixed top-0 w-full z-50">
+    <h1 class="text-xl font-bold text-yellow-400">Arzhel</h1>
+    <nav>
+      <ul class="flex space-x-4">
+        <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+        <li><a href="about.html" class="hover:text-yellow-400">About</a></li>
+        <li><a href="portfolio.html" class="hover:text-yellow-400">Portfolio</a></li>
       </ul>
-    </nav><!-- Hero Section -->
-<section class="flex flex-col items-center justify-center h-screen text-center px-4 relative">
-  <div class="relative">
-    <img src="arzhel.png" alt="Arzhel Avatar" class="w-40 h-40 rounded-full border-4 border-yellow-400 object-cover shadow-xl z-10 relative" />
-    <canvas id="particles" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
-  </div>
-  <h2 class="text-2xl text-gray-300 mt-6">Hello, I'm</h2>
-  <h1 class="text-4xl font-bold text-white">Arzhel</h1>
-  <p class="text-lg text-yellow-300 mt-2" id="typing"></p>
-</section>
+    </nav>
+  </header>  <!-- Hero Section -->  <section class="flex flex-col items-center justify-center h-screen text-center px-4 relative pt-20">
+    <div class="relative w-40 h-40">
+      <img src="arzhel.png" alt="Arzhel Avatar"
+        class="w-40 h-40 rounded-full border-4 border-yellow-400 object-cover shadow-xl z-10 relative" />
+      <canvas id="particles" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+    </div>
+    <h2 class="text-2xl text-gray-300 mt-6">Hello, I'm</h2>
+    <h1 class="text-4xl font-bold text-white">Arzhel</h1>
+    <p class="text-lg text-yellow-300 mt-2" id="typing"></p>
+  </section>  <script>
+    new TypeIt("#typing", {
+      speed: 60,
+      loop: true,
+    })
+      .type("a Backend-focused Developer")
+      .pause(1200)
+      .delete()
+      .type("learning JavaScript and Tailwind")
+      .pause(1200)
+      .delete()
+      .type("excited to build cool stuff!")
+      .pause(1200)
+      .delete()
+      .go();
+  </script>  <script>
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    canvas.width = 200;
+    canvas.height = 200;
 
-<script>
-  new TypeIt("#typing", {
-    speed: 60,
-    loop: true,
-  })
-    .type("a Backend-focused Developer")
-    .pause(1200)
-    .delete()
-    .type("learning JavaScript and Tailwind")
-    .pause(1200)
-    .delete()
-    .type("excited to build cool stuff!")
-    .pause(1200)
-    .delete()
-    .go();
-</script>
+    const particles = Array.from({ length: 30 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5 + 0.5,
+      dx: Math.random() * 0.5 - 0.25,
+      dy: Math.random() * 0.5 - 0.25,
+    }));
 
-<script>
-  // Simple glowing particle effect
-  const canvas = document.getElementById("particles");
-  const ctx = canvas.getContext("2d");
-  canvas.width = 200;
-  canvas.height = 200;
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#facc15";
+        ctx.shadowColor = "#facc15";
+        ctx.shadowBlur = 10;
+        ctx.fill();
 
-  const particles = Array.from({ length: 30 }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    radius: Math.random() * 1.5 + 0.5,
-    dx: Math.random() * 0.5 - 0.25,
-    dy: Math.random() * 0.5 - 0.25,
-  }));
+        p.x += p.dx;
+        p.y += p.dy;
 
-  function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = "#facc15";
-      ctx.shadowColor = "#facc15";
-      ctx.shadowBlur = 10;
-      ctx.fill();
-
-      p.x += p.dx;
-      p.y += p.dy;
-
-      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-    });
-    requestAnimationFrame(drawParticles);
-  }
-  drawParticles();
-</script>
-
-  </body>
-</html><!-- about.html --><!DOCTYPE html><html lang="en" class="bg-zinc-900 text-white">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arzhel | About</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="font-sans">
-    <nav class="flex justify-between items-center p-5 bg-zinc-800 shadow-md">
-      <h1 class="text-yellow-400 font-bold text-xl">Arzhel</h1>
-      <ul class="flex gap-6 text-sm">
-        <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
-        <li><a href="about.html" class="hover:text-yellow-300">About</a></li>
-        <li><a href="portfolio.html" class="hover:text-yellow-300">Portfolio</a></li>
-      </ul>
-    </nav><section class="py-16 px-6 max-w-3xl mx-auto text-center">
-  <h2 class="text-3xl font-bold text-yellow-400 mb-4">About Me</h2>
-  <p class="text-gray-300 text-lg leading-7">
-    I'm Arzhel, an 18-year-old aspiring Web Developer with a growing interest in Backend Development.<br /><br />
-    I'm currently learning and building projects using HTML, CSS, and JavaScript.<br /><br />
-    As a beginner, I'm passionate about improving my skills and creating clean, functional websites. Every line of code I write is a step forward in my journey as a developer.<br /><br />
-    I’m excited to keep learning and turn ideas into reality!
-  </p>
-</section>
-
-  </body>
-</html><!-- portfolio.html (you can add your projects here later with similar layout) --><!DOCTYPE html><html lang="en" class="bg-zinc-900 text-white">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arzhel | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="font-sans">
-    <nav class="flex justify-between items-center p-5 bg-zinc-800 shadow-md">
-      <h1 class="text-yellow-400 font-bold text-xl">Arzhel</h1>
-      <ul class="flex gap-6 text-sm">
-        <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
-        <li><a href="about.html" class="hover:text-yellow-300">About</a></li>
-        <li><a href="portfolio.html" class="hover:text-yellow-300">Portfolio</a></li>
-      </ul>
-    </nav><section class="py-16 px-6 text-center">
-  <h2 class="text-3xl font-bold text-yellow-400 mb-4">My Projects</h2>
-  <p class="text-gray-300">Add your project cards here.</p>
-</section>
-
-  </body>
-</html>
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+  </script></body></html>
